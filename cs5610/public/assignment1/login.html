@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form Maker Login Page</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    	<span class="sr-only">Toggle navigation</span>
+                    	<span class="icon-bar"></span>
+                    	<span class="icon-bar"></span>
+                    	<span class="icon-bar"></span>
+                	</button>
+					<a class="navbar-brand" href="home.html">Form Maker</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse ">	
+					<ul class="nav navbar-nav navbar-right">
+						<li class="disabled"><a href="register.html">Register</a></li>
+						<li><a href="login.html" class="underline">Login</a></li>
+						<li><a href="#" class="underline">Username</a></li>				
+						<li><a href="#" class="underline">Logout</a></li>				
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-3">
+					<div class="well">
+						<ul class="nav">
+							<li><a href="home.html">Home</a></li>
+							<li><a href="profile.html">Profile</a></li>
+							<li><a href="admin.html">Admin</a></li>
+							<li><a href="forms.html">Forms</a></li>
+						</ul>
+					</div>
+				</div>
+			<div class="col-xs-9">
+				<h2 class="page-header">Login</h2>
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label for="username" class="col-xs-4 control-label">Username: </label>
+						<div class="controls col-xs-8">
+							<input type="text" id="username" class="form-control border-color" placeholder="UserName"/>
+						</div>
+					</div>
+  					<div class="form-group">
+    					<label for="inputPassword" class="col-xs-4 control-label">Password: </label>
+    					<div class="controls col-xs-8">
+      						<input type="password" class="form-control border-color" id="inputPassword" placeholder="Password"/>
+    					</div>
+  					</div>
+  					<div class="form-group">
+    					<div class="col-xs-offset-4 col-xs-8">
+      						<a class="btn btn-primary btn-block border-color" href="profile.html" role="button">Login</a>
+    					</div>
+  					</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>
