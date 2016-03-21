@@ -37,10 +37,6 @@
                     		$scope.favorite = true;
                     	}
                     }
-            		
-            		var mapcoords = {latitude: $scope.selectedFoodTruck.place_details.lat, longitude: $scope.selectedFoodTruck.place_details.lng};
-                    $scope.map = {center: mapcoords, zoom: 16};
-                    $scope.marker = {id:0, coords: mapcoords};
             	} else {
                     $scope.createError = true;
                 }
