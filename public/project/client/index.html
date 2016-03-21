@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FoodTruck">
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	
+    	
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="description" content="Food Truck Finder!">
+    	<meta name="author" content="Neha">
+
+    	<title>Food Truck Finder</title>
+
+   	 	<!-- Latest compiled and minified CSS -->
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    	<!-- Custom styles for this template -->
+    	<link href="css/styles.css" rel="stylesheet">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script> 
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApc2NPB2uf2Ir63y-dfl8RBECBuD11bdY&libraries=places"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-google-maps/2.2.1/angular-google-maps.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+		
+    	<script src="app.js"></script>
+    	<script src="js/main.js"></script>
+    	<script src="config.js"></script>
+    
+    	<script src="views/header/header.controller.js"></script>
+    	<script src="views/register/register.controller.js"></script>
+    	<script src="views/login/login.controller.js"></script>
+    	<script src="views/profile/profile.controller.js"></script>
+    	
+    	<script src="views/registerFoodTruck/registerFoodTruck.controller.js"></script>
+    	<script src="views/myTrucks/myTrucks.controller.js"></script>
+    	<script src="views/favorite/favorite.controller.js"></script>
+    	<script src="views/search/search.controller.js"></script>
+    	<script src="views/result/result.controller.js"></script>
+    	
+    	<sript src="views/footer/footer.controller.js"></sript>
+    	
+    	<script src="services/user.service.client.js"></script>
+    	<script src="services/foodTruck.service.client.js"></script>
+
+    	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    	
+	</head>
+	
+	<body>
+		
+		<nav class="navbar navbar-fixed-top navbar-custom" role="navigation">
+			<navigation></navigation>
+		</nav>
+		
+		<div class="container-fluid">
+			<div class="row" ng-view>
+			</div>
+		</div>
+		
+		<footer class="footer">
+			<page-footer></page-footer>
+		</footer>
+	</body>
+</html>

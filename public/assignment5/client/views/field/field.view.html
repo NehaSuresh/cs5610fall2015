@@ -1,0 +1,86 @@
+<script type="text/javascript">
+$(function() {
+    $('.input-group.date').datetimepicker();
+});
+</script>
+<h1 class="page-header">Form fields</h1>
+<ul class="nav nav-tabs">
+    <li><a href="#/form">Forms</a></li>
+    <li class="active"><a href="#">Fields</a></li>
+</ul>
+<div ng-controller="FieldController">
+    <div class="row" ng-repeat="field in model.fields">
+        <div ng-switch="field.type" class="col-sm-4">
+            <div ng-switch-when="TEXT" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <input class="form-control" type="text" placeholder="{{field.placeholder}}" id="input-{{field.id}}"></input>
+            </div>
+            <div ng-switch-when="TEXTAREA" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <textarea class="form-control" placeholder="{{field.placeholder}}" id="input-{{field.id}}"></textarea>
+            </div>
+            <div ng-switch-when="DATE" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <div class="input-group date" id="input-{{field.id}}">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div ng-switch-when="OPTIONS" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <select class="form-control" id="input-{{field.id}}">
+                    <option ng-repeat="item in field.options" value="{{item.value}}">
+                        {{item.label}}
+                    </option>
+                </select>
+            </div>
+             <div ng-switch-when="CHECKBOXES" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <div id="input-{{field.id}}">
+                    <div class="checkbox" ng-repeat="item in field.options">
+                        <label>
+                            <input type="checkbox" value="{{item.value}}" />{{item.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="RADIOS" class="form-group">
+                <label for="input-{{field.id}}">{{field.label}}</label>
+                <div id="input-{{field.id}}">
+                    <div class="radio" ng-repeat="item in field.options">
+                        <label>
+                            <input type="radio" name="input-{{field.id}}-radios" value="{{item.value}}" />{{item.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <a ng-click="" class="glyphicon glyphicon-pencil"></a>
+            <a ng-click="" class="glyphicon glyphicon-plus"></a>
+            <a ng-click="model.removeField(field)" class="glyphicon glyphicon-remove"></a>
+            <a ng-click="" class="glyphicon glyphicon-menu-hamburger"></a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <p class="col-sm-4">Add New Field:</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <select class="form-control" ng-model="model.fieldType">
+                <option value="single">Single Line Text Field</option>
+                <option value="multi">Multi Line Text Field</option>
+                <option value="date">Date Field</option>
+                <option value="dropdown">Dropdown Field</option>
+                <option value="checkbox">Checkboxes Field</option>
+                <option value="radiobutton">Radio Buttons Field</option>
+            </select>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <a ng-click="model.addField(model.fieldType)" class="glyphicon glyphicon-plus"></a>
+        </div>
+    </div>
+</div>

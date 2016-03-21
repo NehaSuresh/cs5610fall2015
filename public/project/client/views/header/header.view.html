@@ -1,0 +1,53 @@
+<div class="container-fluid navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/home">Food Truck</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse navbar-background">
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-class="{'active' : $location.url().indexOf('home') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in" href="#/home">Home</a>
+            </li>
+            <li ng-hide="currentUser" ng-class="{'active' : $location.url().indexOf('register') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in"
+                   href="#/register">Register</a>
+            </li>
+            <li ng-hide="currentUser" ng-class="{'active' : $location.url().indexOf('login') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in" href="#/login">Login</a>
+            </li>
+            <li ng-show="currentUser" ng-class="{'active' : $location.url().indexOf('profile') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in"
+                   href="#/profile">Profile</a>
+            </li>
+            <li ng-show="currentUser" ng-class="{'active' : $location.url().indexOf('registerFoodTruck') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in" href="#/registerFoodTruck">Register
+                    Food Truck</a>
+            </li>
+            <li ng-if="currentUser" ng-class="{'active' : $location.url().indexOf('myTrucks') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in"
+                   href="#/myTrucks/{{ currentUser._id }}">My Trucks</a>
+            </li>
+            <li ng-if="currentUser" ng-class="{'active' : $location.url().indexOf('favorite') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in"
+                   href="#/favorite/{{ currentUser._id }}">Favorite</a>
+            </li>
+            <li ng-class="{'active' : $location.url().indexOf('search') !== -1}">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in" href="#/search">Search</a>
+            </li>
+            <li ng-show="currentUser">
+                <a data-toggle="collapse" data-target=".navbar-collapse.in" class="nav-link">{{ currentUser.username }}</a>
+            </li>
+            <li ng-show="currentUser">
+                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.in"
+                   ng-click="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>

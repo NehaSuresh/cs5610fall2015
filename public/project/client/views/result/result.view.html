@@ -1,0 +1,117 @@
+<div class="main page-offset">
+
+    <div ng-if="!currentUser" class="alert alert-danger alert-dismissible alert-custom col-xs-8 col-centered" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <span> You have to log in to add to favorites </span>
+    </div>
+    <section class="row col-xs-12 col-sm-10 col-md-9 col-centered">
+    <div class="col-xs-11 col-sm-10 col-md-9 col-centered result-container">
+        <div class="detail-container">
+        	<div class="heading"><h2>{{ selectedFoodTruck.name }} &nbsp;&nbsp;<button type="button" class="btn-danger edit-button fav" 
+        	id="removeFoodTruck" ng-if ="favorite" ng-click="removeFavorites(selectedFoodTruck)" aria-label="Remove">
+        	<span  class="glyphicon glyphicon-star" aria-hidden="Remove"></span> </button>
+        	<button type="button" class="btn-danger delete-button" id="addFoodTruck"
+        	ng-if ="!favorite" ng-click="addToFavorites(selectedFoodTruck)" aria-label="Add">
+        	<span class="glyphicon glyphicon-star" aria-hidden="Add"></span>
+            </button> </h2> </div>
+            
+        	<div class="foodTruck-address"><p><br> <br> {{ selectedFoodTruck.place_details.formatted_address }}</p></div>
+            
+           
+            <div class="foodTruck-details">
+                <div class="foodTruck-description">{{ selectedFoodTruck.description }}</div>
+                <div class="foodTruck-info clearfix">
+                	<div class="heading"><h4>{{selectedFoodTruck.cuisine}} </h4></div>
+                    <div class="foodTruck-description">Timings: {{selectedFoodTruck.open}} - {{selectedFoodTruck.close}}</div>
+					<table class="table">
+						<tr>
+							<td ng-if ="selectedFoodTruck.sunday == true" class="col-xs-4"><p>Sun</p></td>
+                            <td ng-if =" selectedFoodTruck.monday == true" class="col-xs-4"><p>Mon</p></td>
+                            <td ng-if ="selectedFoodTruck.tuesday  == true" class="col-xs-4"><p>Tue</p></td>
+                            <td ng-if ="selectedFoodTruck.wednesday == true" class="col-xs-4"><p>Wed</p></td>
+                            <td ng-if ="selectedFoodTruck.thursday == true" class="col-xs-4"><p>Thur</p></td>
+                            <td ng-if ="selectedFoodTruck.friday == true" class="col-xs-4"><p>Fri</p></td>
+                            <td ng-if ="selectedFoodTruck.saturday == true" class="col-xs-4"><p>Sat</p></td> 
+                        </tr>
+                     </table>
+                    
+                     <div class="heading"><h4>Menu </h4></div>
+                     <table class="table table-striped">
+                    	<tr ng-repeat="menuItem in selectedFoodTruck.menu">
+                    		<td class="col-xs-4"><h5>{{ menuItem.dish }}</h5></td>
+                    		<td><p>{{ menuItem.cost }}</p></td>
+                        </tr>
+                     </table>
+                     <div class="heading"><h4>Extras </h4></div>
+                     <table class="table no-border">
+                     	<tr>
+                     		<td ng-if ="selectedFoodTruck.coffee == true" class="col-xs-4"><p>Coffee</p></td>
+                     		<td ng-if ="selectedFoodTruck.soda == true" class="col-xs-4"><p>Soda</p></td>    
+                         </tr>
+                      </table>
+                 </div>
+              </div>
+           </div>
+          </div>
+
+            <div class="map_canvas">
+            	<div id = "map"></div>
+                <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                    </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+        </div>
+    </section>
+    <section class="row col-xs-12 col-sm-10 col-md-9 favorite col-centered">
+    	<div class="form-group col-xs-11 no-padding">
+    	<h3>Reviews</h3>	
+    	<table class="table table-striped">
+    		<thead>
+    			<tr>
+    				<th> <h4>Add Review: </h4></th>
+    				<th>&nbsp; </th>
+    				<th>&nbsp; </th>
+    			</tr>	
+    			<tr>
+    				<th>
+    					<textarea ng-model="newReview" name="description" id="desc" cols="40" rows="3" class="form-control" placeholder="(Optional) Anything you want to add about your food truck">
+    					</textarea> 
+    				</th>
+    				<th>&nbsp; </th>
+    				<th>
+    					<button ng-click="addReview(newReview)" class="btn-custom glyphicon glyphicon-plus"></button>
+    					<button ng-click="updateReview(newReview)" class="btn-custom glyphicon glyphicon-ok"></button>
+    				</th>
+    			</tr>
+    		</thead>
+    	</table>
+    	<table class="table table-striped">
+    		<thead>
+    			<tr>
+    				<th><h4>Username </h4></th>
+    				<th><h4>Review </h4></th>
+    				<th>&nbsp; </th> 
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr ng-repeat="reviewDetail in userReview">
+    				<td>
+    					<a ng-click="showUserFavorite(reviewDetail)" class="indicator-wrap">
+    						<h4> {{ reviewDetail.user.username }} </h4>
+    					</a>		 
+    				</td>
+    				<td ng-if = "currentUser._id == reviewDetail.user._id">
+    					{{ reviewDetail.review }}
+    				</td>
+    				<td>
+    					<button ng-click="deleteReview($index)" class="btn glyphicon glyphicon-remove"></button>
+    					<button ng-click="selectReview($index)" class="btn glyphicon glyphicon-pencil"></button>
+    				</td>
+    			</tr>
+    		</tbody>
+    	</table>	
+      </div>
+    </section>
+</div>

@@ -1,0 +1,47 @@
+<div class="main page-offset">
+	<div class="row clearfix no-margin">
+		<div class="col-xs-10 col-sm-6 col-centered search-prompt">
+			<h3>Search Food Trucks</h3>
+			<form class="form-horizontal">
+				<div class="form-group form-group-lg">
+					<div class="col-xs-10 search-form-input">
+						<input class="form-control search-box" type="text" id="search"
+							ng-model="searchTerm" ng-change="checkSearchTerm()"
+							placeholder="Enter food truck name, zipcode or city" />
+					</div>
+					<a href="" class="btn btn-custom col-xs-2 search-button"
+						ng-click="search()"> <span class="glyphicon glyphicon-search"
+						aria-hidden="true"></span>
+					</a>
+				</div>
+			</form>
+		</div>
+		<div class="col-xs-11 col-md-9 col-centered min-height">
+			<ul ng-if="trucks" class="foodTruck-list">
+				<li class="foodTruck clearfix" ng-repeat="foodTruck in trucks">
+					<div class="foodTruck-image col-xs-6 col-md-4">
+						<div class="row">
+							<img src="img/home.jpg" alt="FoodTruck" class="search-image" />
+						</div>
+					</div>
+					<div class="foodTruck-details col-xs-12 col-md-8">
+						<div class="description col-xs-11">
+							<a ng-click="showDetails(foodTruck)" class="indicator-wrap">
+								<h4>{{ foodTruck.name }}</h4>
+							</a>
+							<h4>{{ foodTruck.place_details.formatted_address }}</h4>
+							<h4>
+								{{ foodTruck.cuisine }}
+								<h4>
+									<p>{{ foodTruck.description }}</p>
+						</div>
+						<ul class="list-inline col-xs-12 details">
+							<li>Open {{ foodTruck.open }}</li>
+							<li>Close {{ foodTruck.close }}</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="main page-offset">
+    <div class="container-fluid">
+        <section class="row col-xs-12 col-sm-10 col-md-9 my-foodTruck col-centered">
+            <h3>Favorite</h3>
+
+            <div ng-if="favoriteTruck.length == 0" class="no-foodTruck">
+                <p>You do not have any favorite food truck yet.<a class="btn btn-custom" href="#/search" role="button"
+                                                            id="search-foodTruck-link">Add Favorite</a></p>
+            </div>
+            <ul ng-if="favoriteTruck" class="foodTruck-list">
+                <li class="foodTruck clearfix" ng-repeat="foodTruck in favoriteTruck">
+                
+                	<div class="foodTruck-image col-xs-6 col-md-4">
+                		<div class="row">
+                			<img src="img/home.jpg" alt="FoodTruck" class="search-image"/>
+                		</div>  
+                    </div>
+   
+                    <div class="foodTruck-details col-xs-12 col-md-8">
+                        <div class="description col-xs-11">
+                        	<a ng-click="showDetails(foodTruck)" class="indicator-wrap">
+                        		<h4> {{ foodTruck.name }} </h4>
+                        	</a>
+                        	
+                        	<h4> {{ foodTruck.place_details.formatted_address }} </h4>
+                        	 
+                        	<h4> {{ foodTruck.cuisine }} <h4>
+                            <p> {{ foodTruck.description }} </p>
+                        </div>
+                        <ul class="list-inline col-xs-12 details">
+                            <li>Open {{ foodTruck.open }}</li>
+                            <li>Close {{ foodTruck.close }}</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>

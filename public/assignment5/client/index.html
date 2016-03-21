@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="FormBuilderApp">
+	<head>
+		<!-- jQuery -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    	<!-- Bootstrap-->
+    	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    	<!-- AngularJs stuff -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
+    	<!-- Custom -->
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    
+	    <script src="app.js"></script>
+	    <script src="config.js"></script>
+	    <script src="views/header/header.controller.js"></script>
+	    <script src="views/sidebar/sidebar.controller.js"></script>
+	    <script src="services/UserService.js"></script>
+	    <script src="services/FormService.js"></script>
+	    <script src="services/FieldService.js"></script>
+	    <script src="views/login/login.controller.js"></script>
+	    <script src="views/profile/profile.controller.js"></script>
+	    <script src="views/register/register.controller.js"></script>
+	    <script src="views/form/form.controller.js"></script>
+	    <script src="views/field/field.controller.js"></script>
+		<title>Assignment 2 Index.html</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div ng-include="'views/header/header.view.html'"></div>
+			</div>
+			<div class="row">
+				<div ng-include="'views/sidebar/sidebar.view.html'" class="col-xs-3"></div>
+				<div ng-view class="col-xs-9"></div>
+			</div>
+		</div>
+	</body>
+</html>
